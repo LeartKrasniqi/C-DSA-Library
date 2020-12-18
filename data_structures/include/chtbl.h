@@ -39,7 +39,7 @@ typedef struct CHTbl_ {
     Notes:
       - Must be called before CHTbl operations can be used
       - If hash table contains data that should not be freed, set destroy to NULL
-      - Complexity: O(n), where m is the number of buckets
+      - Complexity: O(n), where n is the number of buckets
 */
 int chtbl_init(CHTbl *htbl, int buckets, int (*h)(const void *key), int (*match)(const void *key1, const void *key2), void (*destroy)(void *data));
 
