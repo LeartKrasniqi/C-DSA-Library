@@ -139,7 +139,7 @@ int bitree_merge(BiTree *merge, BiTree *left, BiTree *right, const void *data);
 #define bitree_root(tree) ((tree)->root)
 
 /* Check if node is end of branch */
-#define bitree_is_eob(node) ((tree) == NULL)
+#define bitree_is_eob(node) ((node) == NULL)
 
 /* Check if node is leaf node */
 #define bitree_is_leaf(node) ((node)->left == NULL && (node)->right == NULL)
