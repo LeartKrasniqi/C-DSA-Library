@@ -22,9 +22,9 @@ static int lookup(BisTree *tree, BiTreeNode *node, void **data);
 
 
 /*
-***********************************************
-        Interface Method Implemenations
-***********************************************
+************************************************
+        Interface Method Implementations
+************************************************
 */
 
 /* Initialize a binary search tree */
