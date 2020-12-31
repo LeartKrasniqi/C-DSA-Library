@@ -88,7 +88,7 @@ int dlist_insert_next(DList *list, DListElement *element, const void *data);
       - It is the responsibility of the caller to manage the storage associated with data
       - Complexity: O(1)
 */
-int dlist_insert_prev(Dlist *list, DListElement *element, const void *data);
+int dlist_insert_prev(DList *list, DListElement *element, const void *data);
 
 
 /* Remove element from list 

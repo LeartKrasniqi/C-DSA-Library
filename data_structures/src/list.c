@@ -30,7 +30,7 @@ void list_destroy(List *list)
     }
 
     /* To be safe, clear the structure */
-    memset(list, 0, sizeof(List))
+    memset(list, 0, sizeof(List));
     
 }
 

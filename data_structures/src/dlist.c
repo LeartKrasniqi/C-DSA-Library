@@ -37,7 +37,7 @@ void dlist_destroy(DList *list)
 int dlist_insert_next(DList *list, DListElement *element, const void *data)
 {
     /* If element is NULL and the list is not empty, return an error */
-    if( (element == NUL) && (dlist_size(list) != 0) )
+    if( (element == NULL) && (dlist_size(list) != 0) )
         return -1;
 
     /* The new element to be added */
@@ -85,7 +85,7 @@ int dlist_insert_next(DList *list, DListElement *element, const void *data)
 int dlist_insert_prev(DList *list, DListElement *element, const void *data)
 {
     /* If element is NULL and the list is not empty, return an error */
-    if( (element == NUL) && (dlist_size(list) != 0) )
+    if( (element == NULL) && (dlist_size(list) != 0) )
         return -1;
 
     /* The new element to be added */
