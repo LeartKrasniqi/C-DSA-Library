@@ -14,10 +14,10 @@ CFLAGS = -Wall -I$(INC)
 
 # Core data structure objects
 #ds_objects = pqueue.o heap.o bistree.o bitree.o chtbl.o ohtbl.o set.o queue.o stack.o clist.o dlist.o list.o 
-ds_objects = queue.o dlist.o list.o 
+ds_objects = queue.o stack.o clist.o dlist.o list.o 
 
 # Tests
-tests = dlist_test.out list_test.out 
+tests = queue_test.out stack_test.out clist_test.out dlist_test.out list_test.out 
 
 # Examples
 examples = events.out frames.out
