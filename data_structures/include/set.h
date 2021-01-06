@@ -140,7 +140,7 @@ int set_is_element(const Set *set, const void *data);
       - Checks if set1 is a subset of set2
       - Complexity: O(mn), where m,n = # of elements in set1,set2
 */
-int set_is_subset(const Set *set1, const Set set2);
+int set_is_subset(const Set *set1, const Set *set2);
 
 
 /* Determine whether two sets are equal

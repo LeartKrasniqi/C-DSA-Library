@@ -61,7 +61,7 @@ int set_remove(Set *set, void **data)
 
 
 /* Compute the union of two sets */
-int set_union(Set *setu, Set *set1, Set *set2)
+int set_union(Set *setu, const Set *set1, const Set *set2)
 {
     /* Initialize the set for the union -- destroy is set to NULL because set1 and set2 control how they destroy their data */
     set_init(setu, set1->match, NULL);
@@ -107,7 +107,7 @@ int set_union(Set *setu, Set *set1, Set *set2)
 
 
 /* Compute the intersection of two sets */
-int set_intersection(Set *seti, Set *set1, Set *set2)
+int set_intersection(Set *seti, const Set *set1, const Set *set2)
 {
     /* Initialize the set for the intersection -- destroy is set to NULL because set1 controls how it destroys its data */
     set_init(seti, set1->match, NULL);
@@ -139,7 +139,7 @@ int set_intersection(Set *seti, Set *set1, Set *set2)
 
 
 /* Compute the difference of two sets (set1 - set2) */
-int set_difference(Set *setd, Set *set1, Set *set2)
+int set_difference(Set *setd, const Set *set1, const Set *set2)
 {
     /* Initialize the set for the difference -- destroy is set to NULL because set1 controls how it destroys its data */
     set_init(setd, set1->match, NULL);
@@ -171,7 +171,7 @@ int set_difference(Set *setd, Set *set1, Set *set2)
 
 
 /* Determine whether element is part of the set */
-int set_is_element(Set *set, const void *data)
+int set_is_element(const Set *set, const void *data)
 {
     /* Will be used to hold the current element as we traverse the set */
     ListElement *element;
@@ -190,7 +190,7 @@ int set_is_element(Set *set, const void *data)
 
 
 /* Determine whether set1 is a subset of set2 */
-int set_is_subset(Set *set1, Set *set2)
+int set_is_subset(const Set *set1, const Set *set2)
 {
     /* Quick test -- If set1 has more elements, it cannot be a subset */
     if(set_size(set1) > set_size(set2))
@@ -213,7 +213,7 @@ int set_is_subset(Set *set1, Set *set2)
 
 
 /* Determine whether two sets are equal */
-int set_is_equal(Set *set1, Set *set2)
+int set_is_equal(const Set *set1, const Set *set2)
 {
     /* Quick test -- The sets must be the same size */
     if(set_size(set1) != set_size(set2))
