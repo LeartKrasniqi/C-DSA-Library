@@ -107,7 +107,7 @@ int chtbl_remove(CHTbl *htbl, void **data)
 int chtbl_lookup(const CHTbl *htbl, void **data)
 {
     /* Hash the key */
-    int bucket = hbtl->h(*data) % htbl->buckets;
+    int bucket = htbl->h(*data) % htbl->buckets;
 
     /* Search for the data in the proper bucket */
     ListElement *element;

@@ -15,7 +15,7 @@ typedef struct CHTbl_ {
     void (*destroy)(void *data);                        /* Function used to deallocate data */
 
     int size;           /* Number of elements in the table */
-    List *table;        /* The table itself -- Implemented as a linked list */
+    List *table;        /* The table itself -- Implemented as an array of linked lists (i.e., array of buckets) */
 } CHTbl;
 
 
@@ -38,6 +38,7 @@ typedef struct CHTbl_ {
 
     Notes:
       - Must be called before CHTbl operations can be used
+      - match should return 1 if key1=key2 and 0 otherwise
       - If hash table contains data that should not be freed, set destroy to NULL
       - Complexity: O(n), where n is the number of buckets
 */
