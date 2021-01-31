@@ -40,6 +40,7 @@ typedef struct OHTbl_ {
 
     Notes:
       - Must be called before OHTbl operations can be used
+      - match shoud return 1 if key1==key2 and 0 otherwise
       - If hash table contains data that should not be freed, set destroy to NULL
       - Complexity: O(n), where n is the number of poisitions
 */

@@ -56,7 +56,7 @@ void ohtbl_destroy(OHTbl *htbl)
     free(htbl->table);
 
     /* To be safe, clear the structure */
-    memset(htbl, 0, sizeof(htbl));
+    memset(htbl, 0, sizeof(OHTbl));
 }
 
 
@@ -69,7 +69,7 @@ int ohtbl_insert(OHTbl *htbl, const void *data)
 
     /* Do nothing if the element already exists */
     void *temp = (void *)data;
-    if(ohtbl_lookup(htbl, &temp) == )
+    if(ohtbl_lookup(htbl, &temp) == 0)
         return 1;
 
     /* Loop through each position index and try double hashing to insert the new element */
