@@ -122,7 +122,7 @@ static void destroy_left(BisTree *tree, BiTreeNode *node)
 static void destroy_right(BisTree *tree, BiTreeNode *node)
 {
     /* Cannot destroy an empty tree */
-    if(bitree_sisze(tree) == 0)
+    if(bitree_size(tree) == 0)
         return;
 
     /* Determine where to destroy nodes */
@@ -161,7 +161,7 @@ static void rotate_left(BiTreeNode **node)
     BiTreeNode *left = bitree_left(*node);  
     
     /* If the node is left-heavy, perform a LL rotation */
-    if( (AvlNode *)bitree_data(left)->factor == AVL_LEFT_HEAVY )
+    if( ((AvlNode *)bitree_data(left))->factor == AVL_LEFT_HEAVY )
     {
         /* First, set the left-child of node to the right-child of left */
         bitree_left(*node) = bitree_right(left);
