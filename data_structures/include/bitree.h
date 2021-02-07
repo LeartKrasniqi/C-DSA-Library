@@ -6,7 +6,7 @@
 
 
 /* Structure definition for binary tree node */
-typedef struct BiTreeNode_{
+typedef struct BiTreeNode_ {
     void *data;                 /* Will hold the data associated with this node */
     struct BiTreeNode_ *left;   /* Left child */
     struct BiTreeNode_ *right;  /* Right child */
@@ -19,7 +19,7 @@ typedef struct BiTree_ {
     int (*compare)(const void *key1, const void *key2);     /* Comparison function (not used in BiTree, but used in derived structures) */ 
     void (*destroy)(void *data);                            /* Deallocation function (e.g., free()) */
 
-    BiTreeNote *root;   /* The root (i.e., top node) of the tree */
+    BiTreeNode *root;   /* The root (i.e., top node) of the tree */
 } BiTree;
 
 

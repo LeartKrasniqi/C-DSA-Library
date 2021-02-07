@@ -26,7 +26,7 @@ void bitree_destroy(BiTree *tree)
 
 
 /* Insert a node as a left child */
-int bittree_insert_left(BiTree *tree, BiTreeNode *node, const void *data)
+int bitree_insert_left(BiTree *tree, BiTreeNode *node, const void *data)
 {
     /* Will point to the position where the node will be inserted */
     BiTreeNode **position;
@@ -72,7 +72,7 @@ int bittree_insert_left(BiTree *tree, BiTreeNode *node, const void *data)
 
 
 /* Insert node as a right child */
-int bittree_insert_right(BiTree *tree, BiTreeNode *node, const void *data)
+int bitree_insert_right(BiTree *tree, BiTreeNode *node, const void *data)
 {
     /* Will point to the position where the node will be inserted */
     BiTreeNode **position;
@@ -202,7 +202,7 @@ int bitree_merge(BiTree *merge, BiTree *left, BiTree *right, const void *data)
 
     /* Merge the two trees into one */
     bitree_root(merge)->left = bitree_root(left);
-    bitree_root(merge)->right = bittree_root(right);
+    bitree_root(merge)->right = bitree_root(right);
 
     /* Update the size of the tree */
     merge->size += bitree_size(left) + bitree_size(right);
