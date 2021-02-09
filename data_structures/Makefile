@@ -13,14 +13,13 @@ CFLAGS = -Wall -I$(INC)
 
 
 # Core data structure objects
-#ds_objects = pqueue.o heap.o bistree.o bitree.o chtbl.o ohtbl.o set.o queue.o stack.o clist.o dlist.o list.o 
-ds_objects = pqueue.o heap.o bistree.o bitree.o ohtbl.o chtbl.o set.o queue.o stack.o clist.o dlist.o list.o 
+ds_objects = $(patsubst %.c,%.o,$(shell find $(SRC) -name '*.c' | xargs basename))
 
 # Tests
-tests = pqueue_test.out heap_test.out bistree_test.out bitree_test.out ohtbl_test.out chtbl_test.out set_test.out queue_test.out stack_test.out clist_test.out dlist_test.out list_test.out 
+tests = $(patsubst %.c,%.out,$(shell find $(TST) -name '*.c' | xargs basename))
 
 # Examples
-examples = events.out frames.out
+examples = $(patsubst %.c,%.out,$(shell find $(EX) -name '*.c' | xargs basename))
 
 # Rule to make the core data structure object files
 $(ds_objects): %.o: $(SRC)/%.c $(INC)/%.h
