@@ -15,13 +15,13 @@ CFLAGS = -Wall -I$(INC) -I$(DS_INC)
  
 
 # Core algorithm objects
-alg_objects = $(patsubst %.c,%.o,$(shell find $(SRC) -name '*.c' | xargs basename))
+alg_objects = $(patsubst %.c,%.o,$(shell find $(SRC) -name '*.c' | xargs -n1 basename))
 
 # Tests
-tests = $(patsubst %.c,%.out,$(shell find $(TST) -name '*.c' | xargs basename))
+tests = $(patsubst %.c,%.out,$(shell find $(TST) -name '*.c' | xargs -n1 basename))
 
 # Examples
-examples = $(patsubst %.c,%.out,$(shell find $(EX) -name '*.c' | xargs basename))
+examples = $(patsubst %.c,%.out,$(shell find $(EX) -name '*.c' | xargs -n1 basename))
 
 # Rule to make the data structure library
 .PHONY: ds_lib.a
