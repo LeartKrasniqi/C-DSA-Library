@@ -138,7 +138,6 @@ int main()
     for(ListElement *v = list_head(ordered); v != NULL; v = list_next(v))
     {
         DfsVertex *vertex = list_data(v);
-
         printf("%s  ", (char *)vertex->data);
     }
     printf("\n");
