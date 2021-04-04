@@ -23,6 +23,9 @@ typedef struct Graph_ {
     List adjlists;  /* The adjacency lists that make up the graph */
 } Graph;
 
+/* Colors for graph vertices (Used in graph search algorithms) */
+typedef enum VertexColor_ {white, gray, black} VertexColor;
+
 
 
 

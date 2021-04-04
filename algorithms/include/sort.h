@@ -6,6 +6,7 @@
 #include <string.h>
 #include <limits.h>
 #include <math.h>
+#include <time.h>
 
 
 /*
@@ -31,45 +32,38 @@
 int insertion_sort(void *data, int num_elem, int elem_size, int (*compare)(const void *key1, const void *key2));
 
 
-/* Quick Sort
+/* Quicksort
     @param data       Array of elements
     @param num_elem   Number of elements in data 
     @param elem_size  Size of each element (in bytes)
-    @param start_idx  Starting index of region to be partitioned
-    @param end_idx    Ending index of region to be partitioned
     @param compare    Function used to compare elements
 
     @return 0 if sorting successful, -1 otherwise
 
     Notes:
-      - Initially, set start_idx=0 and end_idx=num_elem-1
       - For ascending sort, compare should return 1 if key1>key2, 0 if key1=key2, and -1 if key1<key2
       - For descending sort, reverse the above cases returning 1 and -1
-      - Prior to call, seed random generator using srand(time(NULL))
       - Upon return, data contains the sorted elements
       - Complexity: O(nlog(n)) where n is the number of elements to be sorted
 */
-int quick_sort(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2));
+int quick_sort(void *data, int num_elem, int elem_size, int (*compare)(const void *key1, const void *key2));
 
 
 /* Merge Sort
     @param data       Array of elements
     @param num_elem   Number of elements in data
     @param elem_size  Size of each element (in bytes)
-    @param start_idx  Starting index of region to be sorted
-    @param end_idx    Ending index of region to be sorted
     @param compare    Function used to compare elements
  
     @return 0 if sorting successful, -1 otherwise
     
     Notes:
-      - Initially, set start_idx=0 and end_idx=num_elem-1
       - For ascending sort, compare should return 1 if key1>key2, 0 if key1=key2, and -1 if key1<key2
       - For descending sort, reverse the above cases returning 1 and -1
       - Upon return, data contains the sorted elements
       - Complexity: O(nlog(n)) where n is the number of elements to be sorted
 */
-int merge_sort(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2));
+int merge_sort(void *data, int num_elem, int elem_size, int (*compare)(const void *key1, const void *key2));
 
 
 /* Counting Sort

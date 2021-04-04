@@ -27,8 +27,8 @@ int main()
 
     /* Perform the sorts  */
     insertion_sort(sorted[0], N, sizeof(int), compare);
-    quick_sort(sorted[1], N, sizeof(int), 0, N - 1, compare);
-    merge_sort(sorted[2], N, sizeof(int), 0, N - 1, compare);
+    quick_sort(sorted[1], N, sizeof(int), compare);
+    merge_sort(sorted[2], N, sizeof(int), compare);
     counting_sort(sorted[3], N, find_max(sorted[3]) + 1);
     radix_sort(sorted[4], N, 2, 10);
 

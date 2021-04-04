@@ -47,9 +47,9 @@ int insertion_sort(void *data, int num_elem, int elem_size, int (*compare)(const
 
 
 /*
-**************************
-        Quick Sort
-**************************
+*************************
+        Quicksort
+*************************
 */
 
 /* Compare two integers (used for median-of-three partitioning) */
@@ -132,8 +132,8 @@ static int quick_sort_partition(void *data, int elem_size, int start_idx, int en
     return end_idx;
 }
 
-/* Perform Quick Sort */
-int quick_sort(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2))
+/* Perform Quicksort */
+static int quick_sort_main(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2))
 {
     /* Recurse until not possible to parition any further */
     if(start_idx < end_idx)
@@ -144,15 +144,25 @@ int quick_sort(void *data, int num_elem, int elem_size, int start_idx, int end_i
             return -1;
 
         /* Recursively sort the left partition */
-        if(quick_sort(data, num_elem, elem_size, start_idx, part_idx, compare) != 0)
+        if(quick_sort_main(data, num_elem, elem_size, start_idx, part_idx, compare) != 0)
             return -1;
 
         /* Recursively sort the right partition */
-        if(quick_sort(data, num_elem, elem_size, part_idx + 1, end_idx, compare) != 0)
+        if(quick_sort_main(data, num_elem, elem_size, part_idx + 1, end_idx, compare) != 0)
             return -1;
     }
 
     return 0;
+}
+
+/* Interface Method */
+int quick_sort(void *data, int num_elem, int elem_size, int (*compare)(const void *key1, const void *key2))
+{
+    /* Seed the rand() function */
+    srand(time(NULL));
+
+    /* Run quicksort */
+    return quick_sort_main(data, num_elem, elem_size, 0, num_elem - 1, compare);
 }
 
 
@@ -232,9 +242,8 @@ static int merge_sort_merge(void *data, int elem_size, int start_idx, int mid_id
     return 0;
 }  
 
-
 /* Perform Merge Sort */
-int merge_sort(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2))
+static int merge_sort_main(void *data, int num_elem, int elem_size, int start_idx, int end_idx, int (*compare)(const void *key1, const void *key2))
 {
     /* Recurse until no more divisions can be made */
     if(start_idx < end_idx)
@@ -243,11 +252,11 @@ int merge_sort(void *data, int num_elem, int elem_size, int start_idx, int end_i
         int mid_idx = (int)((start_idx + end_idx - 1) / 2);
 
         /* Recursively sort the left division */
-        if(merge_sort(data, num_elem, elem_size, start_idx, mid_idx, compare) != 0)
+        if(merge_sort_main(data, num_elem, elem_size, start_idx, mid_idx, compare) != 0)
             return -1;
 
         /* Recursively sort the right division */
-        if(merge_sort(data, num_elem, elem_size, mid_idx + 1, end_idx, compare) != 0)
+        if(merge_sort_main(data, num_elem, elem_size, mid_idx + 1, end_idx, compare) != 0)
             return -1;
 
         /* Now, merge the two sorted divisions into a single sorted array */
@@ -256,6 +265,13 @@ int merge_sort(void *data, int num_elem, int elem_size, int start_idx, int end_i
     }
 
     return 0;
+}
+
+/* Interface Method */
+int merge_sort(void *data, int num_elem, int elem_size, int (*compare)(const void *key1, const void *key2))
+{
+    /* Call the main merge sort method */
+    return merge_sort_main(data, num_elem, elem_size, 0, num_elem - 1, compare);
 }
 
 
