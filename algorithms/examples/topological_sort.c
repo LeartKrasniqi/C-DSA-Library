@@ -4,7 +4,7 @@
 #include <string.h>
 
 #include "graph.h"
-#include "graph_search.h"
+#include "search.h"
 
 /* Example will deal with courses and their prereqs
     MA111 has no prereqs
